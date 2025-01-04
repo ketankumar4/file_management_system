@@ -1,0 +1,24 @@
+<h1>Your Files</h1>
+<%= link_to "Upload New File", new_file_upload_path, class: "btn btn-primary" %>
+
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @file_uploads.each do |file| %>
+      <tr>
+        <td><%= file.title %></td>
+        <td><%= file.description %></td>
+        <td>
+          <%= link_to "Share", share_file_upload_path(file), class: "btn btn-info" %>
+          <%= link_to "Delete", file_upload_path(file), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

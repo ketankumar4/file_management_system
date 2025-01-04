@@ -1,0 +1,13 @@
+<h1>File Details</h1>
+
+<p><strong>Title:</strong> <%= @file_upload.title %></p>
+<p><strong>Description:</strong> <%= @file_upload.description %></p>
+
+<% if @file_upload.file_uploaded %>
+  <p>
+    <a href="<%= @file_upload.file_uploaded_url %>" class="btn btn-primary" target="_blank">View File</a>
+    <a href="<%= @file_upload.file_uploaded_url %>" class="btn btn-secondary" download>Download File</a>
+  </p>
+<% else %>
+  <p>No file uploaded.</p>
+<% end %>
